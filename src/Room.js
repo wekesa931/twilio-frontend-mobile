@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Mic, PhoneOff, Video } from "react-feather";
 import Participant from "./Participant";
 
 const Room = ({ roomName, room, handleLogout }) => {
@@ -30,8 +31,17 @@ const Room = ({ roomName, room, handleLogout }) => {
 
   return (
     <div className="room">
-      <h2>Room: {roomName}</h2>
-      <button onClick={handleLogout}>Log out</button>
+      <div style={{
+        display: "flex",
+        width: "100%",
+        position: "absolute",
+        padding: "3px"
+      }}>
+        <div className='buttns'><Video /></div>
+        <div className='buttns'><Mic /></div>
+        <button className='buttns' onClick={handleLogout}><PhoneOff /></button>
+      </div>
+      
       <div className="local-participant">
         {room ? (
           <Participant
@@ -42,7 +52,6 @@ const Room = ({ roomName, room, handleLogout }) => {
           ""
         )}
       </div>
-      <h3>Remote Participants</h3>
       <div className="remote-participants">{remoteParticipants}</div>
     </div>
   );

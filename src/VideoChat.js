@@ -5,7 +5,7 @@ import Room from "./Room";
 
 const VideoChat = () => {
   const [username, setUsername] = useState("");
-  const [roomName, setRoomName] = useState("");
+  const [roomName, setRoomName] = useState("awesome");
   const [room, setRoom] = useState(null);
   const [connecting, setConnecting] = useState(false);
 
@@ -21,7 +21,7 @@ const VideoChat = () => {
     async (event) => {
       event.preventDefault();
       setConnecting(true);
-      const data = await fetch("/video/token", {
+      const data = await fetch("https://twilio-video-server-innovation.herokuapp.com/video/token", {
         method: "POST",
         body: JSON.stringify({
           identity: username,

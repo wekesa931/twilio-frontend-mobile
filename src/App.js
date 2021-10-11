@@ -1,24 +1,31 @@
 import React from 'react';
 import './App.css';
 import VideoChat from './VideoChat';
+import logo from './assest/antara-logo.png'
+import { Clipboard, Heart, Home, MessageSquare } from 'react-feather';
 
 const App = () => {
   return (
     <div className="app">
       <header>
-        <h1>Video Chat with Hooks</h1>
+        <img src={logo} alt="Antara Logo" />
+        <p style={{
+          color: "#1084ee"
+        }}>Virtual Consultation</p>
       </header>
       <main>
         <VideoChat />
       </main>
       <footer>
-        <p>
-          Made with{' '}
-          <span role="img" aria-label="React">
-            ⚛️
-          </span>{' '}
-          by <a href="https://twitter.com/philnash">philnash</a>
-        </p>
+        <div style={{
+              display: "flex",
+              justifyContent: "space-around",
+        }}>
+          <Home />
+          <Heart />
+          <Clipboard />
+          <MessageSquare />
+        </div>
       </footer>
     </div>
   );
