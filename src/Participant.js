@@ -66,7 +66,7 @@ const Participant = ({ participant, isMuted, isRemote }) => {
     <div className="participant">
       <h3>{participant.identity}</h3>
       <video ref={videoRef} autoPlay={true} />
-      <audio ref={audioRef} autoPlay={true} muted={isRemote ? false : isMuted} />
+      <audio ref={audioRef} autoPlay={true} muted />
     </div>
   );
 };
