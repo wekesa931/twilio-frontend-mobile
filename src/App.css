@@ -116,16 +116,14 @@ button:hover {
 }
 .remote-participants {
   display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  padding: 0 2em 2em;
+  flex-direction: column;
 }
 .participant {
   background: #ff9800;
   padding: 10px;
+  margin-bottom: 10px;
   border-radius: 6px;
   display: inline-block;
-  margin-right: 10px;
 }
 .participant:last-child {
   margin-right: 0;

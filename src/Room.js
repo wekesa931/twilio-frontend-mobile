@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Mic, PhoneOff, Video } from "react-feather";
+import { Mic, MicOff, PhoneOff, Video } from "react-feather";
 import Participant from "./Participant";
 
 const Room = ({ roomName, room, handleLogout }) => {
   const [participants, setParticipants] = useState([]);
+  const [isMuted, setIsMuted] = useState(true);
 
   useEffect(() => {
     const participantConnected = (participant) => {
@@ -38,7 +39,9 @@ const Room = ({ roomName, room, handleLogout }) => {
         padding: "3px"
       }}>
         <div className='buttns'><Video /></div>
-        <div className='buttns'><Mic /></div>
+        <div className='buttns' onClick={() => setIsMuted(!isMuted)}>
+          {isMuted ? <Mic /> : <MicOff />}
+        </div>
         <button className='buttns' onClick={handleLogout}><PhoneOff /></button>
       </div>
       
@@ -47,6 +50,7 @@ const Room = ({ roomName, room, handleLogout }) => {
           <Participant
             key={room.localParticipant.sid}
             participant={room.localParticipant}
+            isMuted={isMuted}
           />
         ) : (
           ""
