@@ -27,7 +27,7 @@ const Room = ({ roomName, room, handleLogout }) => {
   }, [room]);
 
   const remoteParticipants = participants.map((participant) => (
-    <Participant key={participant.sid} participant={participant} />
+    <Participant key={participant.sid} participant={participant} isRemote={true} />
   ));
 
   return (
@@ -40,7 +40,7 @@ const Room = ({ roomName, room, handleLogout }) => {
       }}>
         <div className='buttns'><Video /></div>
         <div className='buttns' onClick={() => setIsMuted(!isMuted)}>
-          {isMuted ? <Mic /> : <MicOff />}
+          {isMuted ? <MicOff /> : <Mic />}
         </div>
         <button className='buttns' onClick={handleLogout}><PhoneOff /></button>
       </div>
@@ -51,6 +51,7 @@ const Room = ({ roomName, room, handleLogout }) => {
             key={room.localParticipant.sid}
             participant={room.localParticipant}
             isMuted={isMuted}
+            isRemote={false}
           />
         ) : (
           ""
